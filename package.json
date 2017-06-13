@@ -1,6 +1,6 @@
 {
   "name": "old-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Decorator for ReactJS components that saves the old state before it gets updated.",
   "license": "Apache-2.0",
   "main": "build",
@@ -11,6 +11,14 @@
     "start": "npm run dev",
     "test": "jest src"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borela/old-state.git"
+  },
+  "bugs": {
+    "url": "https://github.com/borela/old-state/issues"
+  },
+  "homepage": "https://github.com/borela/old-state#readme",
   "keywords": [
     "decorator",
     "old",

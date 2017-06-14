@@ -25,7 +25,7 @@ const STATE_A = { a: 1 }
 const STATE_B = { a: 1, b: 2 }
 const STATE_C = { a: 1, b: 2, c: 3 }
 
-describe('Decorator “oldState”', () => {
+describe('Decorator “oldState” applied on “SomeComponent”', () => {
   it('has the same constructor', () => {
     const WRAPPER = shallow(<SomeComponent/>)
     const INSTANCE = WRAPPER.instance()

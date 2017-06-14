@@ -17,7 +17,9 @@ export function decorate(targetComponent:Component) {
 
   Object.defineProperty(prototype, 'oldState', {
     get() {
-      return this._oldState || this.state
+      return this._oldState !== undefined
+        ? this._oldState
+        : this.state
     }
   })
 

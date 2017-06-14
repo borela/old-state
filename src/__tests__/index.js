@@ -38,11 +38,11 @@ describe('Decorator “oldState” applied on “SomeComponent”', () => {
     const INSTANCE = WRAPPER.instance()
 
     expect(INSTANCE.oldState)
-      .toEqual(INSTANCE.props)
+      .toEqual(INSTANCE.state)
 
     WRAPPER.setState(STATE_A)
     expect(INSTANCE.oldState)
-      .toEqual({})
+      .toEqual(null)
 
     WRAPPER.setState(STATE_B)
     expect(INSTANCE.oldState)

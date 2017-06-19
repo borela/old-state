@@ -9,10 +9,11 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
+// @flow
 
 import { Component } from 'react'
 
-export function oldState(targetComponent:Component) {
+export function oldState(targetComponent:Class<Component>) {
   let prototype = targetComponent.prototype
 
   Object.defineProperty(prototype, 'oldState', {

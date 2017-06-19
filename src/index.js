@@ -18,11 +18,16 @@ export function oldState(targetComponent:Class<Component>) {
 
   Object.defineProperty(prototype, 'oldState', {
     get() {
-      return this._oldState !== undefined
-        ? this._oldState
-        : this.state
+      return this._oldState
     }
   })
+
+  let oldComponentWillMount = prototype.componentWillMount
+  prototype.componentWillMount = function() {
+    this._oldState = this.state
+    if (oldComponentWillMount)
+      oldComponentWillMount()
+  }
 
   let oldComponentWillUpdate = prototype.componentWillUpdate
   prototype.componentWillUpdate = function(nextProps, nextState) {

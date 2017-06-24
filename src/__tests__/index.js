@@ -14,12 +14,14 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import oldState from '..'
 
-@oldState
 class SomeComponent extends React.Component {
   render() {
     return <div>Ctrine!</div>
   }
 }
+
+// The decorator must modify the class instead of generating a new one.
+let DecoratedComponent = oldState(SomeComponent)
 
 const STATE_A = { a: 1 }
 const STATE_B = { a: 1, b: 2 }
@@ -27,8 +29,10 @@ const STATE_C = { a: 1, b: 2, c: 3 }
 
 describe('Decorator “oldState” applied on “SomeComponent”', () => {
   it('has the same constructor', () => {
-    const WRAPPER = shallow(<SomeComponent/>)
+    const WRAPPER = shallow(<DecoratedComponent/>)
     const INSTANCE = WRAPPER.instance()
+    expect(INSTANCE instanceof SomeComponent)
+      .toBe(true)
     expect(Object.getPrototypeOf(INSTANCE).constructor)
       .toBe(SomeComponent)
   })
